@@ -1,0 +1,9 @@
+footer{
+  font-weight: 500;
+  width: 100%;
+  max-height: 4vh;
+  height: 3em;
+
+  text-align: center;
+  background-color: aquamarine;
+}

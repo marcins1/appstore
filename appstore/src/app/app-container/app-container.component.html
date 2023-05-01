@@ -1,0 +1,5 @@
+<div class="parent">
+  <div *ngFor="let app of Apps">
+    <app-card [appID]="app.id" [name]="app.name" [description]="app.description" [photos]="app.photos" [price]="app.price"></app-card>
+  </div>
+</div>
