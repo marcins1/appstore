@@ -10,6 +10,7 @@ import { ContentComponent } from './layout/content/content.component';
 import { AppCardComponent } from './app-card/app-card.component';
 import { AppContainerComponent } from './app-container/app-container.component';
 import { CartComponent } from './cart/cart.component';
+import { CartItemComponent } from './cart/cart-item/cart-item.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CartComponent } from './cart/cart.component';
     ContentComponent,
     AppCardComponent,
     AppContainerComponent,
-    CartComponent
+    CartComponent,
+    CartItemComponent
   ],
   imports: [
     BrowserModule,

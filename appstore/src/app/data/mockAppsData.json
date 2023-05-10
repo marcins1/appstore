@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Facebook",
-    "price": 0,
+    "price": 10,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "name": "Twitter",
-    "price": 0,
+    "price": 234,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "name": "Angry Birds",
-    "price": 0,
+    "price": 34,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "name": "Facebook",
-    "price": 0,
+    "price": 45,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",
@@ -50,7 +50,7 @@
   {
     "id": 5,
     "name": "Facebook",
-    "price": 0,
+    "price": 45,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "name": "Facebook",
-    "price": 0,
+    "price": 234,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "name": "Facebook",
-    "price": 0,
+    "price": 9,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",
@@ -98,7 +98,7 @@
   {
     "id": 9,
     "name": "Facebook",
-    "price": 0,
+    "price": 23,
     "photos": [
       "data/mockPhoto1",
       "data/mockPhoto2",

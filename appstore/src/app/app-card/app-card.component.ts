@@ -10,11 +10,11 @@ import { CartService } from '../services/cart.service';
 })
 export class AppCardComponent {
   @Input() name: String;
-  @Input() price: Number;
+  @Input() price: number;
   @Input() photos: String[];
   @Input() description: String;
-  @Input() premium_discount: Number;
-  @Input() appID: Number = 0;
+  @Input() premium_discount: number;
+  @Input() appID: number = 0;
 
   constructor(private cart: CartService){
     this.name = "loading";
