@@ -1,0 +1,7 @@
+.parent{
+  width: 100%;
+}
+.checkout{
+  display: flex;
+  justify-content: center;
+}

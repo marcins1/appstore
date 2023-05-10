@@ -1,15 +1,7 @@
 import { Injectable } from '@angular/core';
 import appData  from  '../data/mockAppsData.json'
-
-
-interface App{
-  id: Number,
-  name: String,
-  price: Number,
-  photos: String[],
-  premiumDiscount: Number,
-  description: String
-}
+import { App } from '../data/IApp';
+import cart from '../data/mockCart.json'
 
 @Injectable({
   providedIn: 'root'
@@ -17,16 +9,22 @@ interface App{
 export class AppsDataProviderService {
 
   data: App[];
+  cart: any[];
 
   constructor() {
     this.data = appData;
-   };
+    this.cart = cart;
+  };
 
   getAppById(id: number){
-    return this.data[id];
+    return this.data[id-1];
   };
   getAllApps(){
     return this.data;
+  }
+
+  getCartAppsIDs(){
+    return this.cart;
   }
 
 
