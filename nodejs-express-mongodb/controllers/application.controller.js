@@ -12,13 +12,14 @@ exports.create = (req, res) => {
     const application = new Application({
         name: req.body.name,
         price: req.body.price,
+        download_size: req.body.download_size,
         description: req.body.description,
         photos: req.body.photos,
         number_of_downloads: 0
     });
 
     // Save Application in the database
-    Application.save(application)
+    application.save(application)
         .then(data => {
             res.send(data);
         })
