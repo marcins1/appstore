@@ -12,6 +12,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="cart">cart</a>
         </li>
+        <li *ngIf="isLoggedIn && isAdmin" class="nav-item">
+          <a class="nav-link" routerLink="admin">Admin board</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link disabled" routerLink="profile">Disabled</a>
         </li>
@@ -20,8 +23,17 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>
-      <div class="ms-3 mt-2">
-        <h5>Hello {{currentUser.username}}</h5>
+      <div *ngIf="isLoggedIn" class="ms-3 mt-2">
+        <a class="nav-link" routerLink="profile">{{currentUser.username}}</a>
+      </div>
+      <div *ngIf="!isLoggedIn" class="ms-3 mt-2">
+        <a class="nav-link" routerLink="login">Login</a>
+      </div>
+      <div *ngIf="!isLoggedIn" class="ms-3 mt-2">
+        <a class="nav-link" routerLink="register">Register</a>
+      </div>
+      <div *ngIf="isLoggedIn" class="ms-3 mt-2">
+        <a href class="nav-link" (click)="logout()">Logout</a>
       </div>
     </div>
   </div>

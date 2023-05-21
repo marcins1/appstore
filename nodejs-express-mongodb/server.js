@@ -6,7 +6,8 @@ const cookieSession = require("cookie-session");
 const app = express();
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "http://localhost:8081",
+  credentials: true
 };
 
 app.use(cors(corsOptions));

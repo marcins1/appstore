@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,8 +13,13 @@ import { AppCardComponent } from './app-card/app-card.component';
 import { AppContainerComponent } from './app-container/app-container.component';
 import { CartComponent } from './cart/cart.component';
 import { CartItemComponent } from './cart/cart-item/cart-item.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
+import { ProfileComponent } from './profile/profile.component';
+import { AdminBoardComponent } from './admin-board/admin-board.component';
 
 import { httpInterceptorProviders } from './helpers/http.interceptor';
+
 
 @NgModule({
   declarations: [
@@ -24,12 +30,17 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     AppCardComponent,
     AppContainerComponent,
     CartComponent,
-    CartItemComponent
+    CartItemComponent,
+    RegisterComponent,
+    LoginComponent,
+    ProfileComponent,
+    AdminBoardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
+    FormsModule,
     HttpClientModule
   ],
   providers: [httpInterceptorProviders],
