@@ -29,7 +29,6 @@ module.exports = mongoose => {
                 }
             ],
             cart: [String]
-
         })
     );
 
