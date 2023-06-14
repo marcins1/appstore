@@ -8,12 +8,12 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class CartItemComponent {
   @Input() name: String;
-  @Input() appID: number;
+  @Input() appID: string;
   @Input() price: number;
 
   constructor(private cart: CartService){
     this.name = "loading";
-    this.appID = 0;
+    this.appID = "0";
     this.price = 0;
   }
   removeFromCart(){

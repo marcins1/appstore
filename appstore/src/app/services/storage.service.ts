@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../data/user-utils';
 
 const USER_KEY = 'user_authorization';
 
@@ -6,7 +7,8 @@ const USER_KEY = 'user_authorization';
   providedIn: 'root'
 })
 export class StorageService {
-  constructor() {}
+  constructor() {
+  }
 
   clean(): void {
     window.sessionStorage.clear();
@@ -15,6 +17,7 @@ export class StorageService {
   public saveUser(user: any): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(user));
+    console.log(window.sessionStorage.getItem(USER_KEY));
   }
 
   public getUser(): any {
@@ -33,5 +36,14 @@ export class StorageService {
     }
 
     return false;
+  }
+
+  public getUserID(): string {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
+      return (JSON.parse(user) as User).userID;
+    }
+
+    return "";
   }
 }

@@ -19,7 +19,7 @@ export class NavbarComponent {
         if (role === "ROLE_ADMIN") {
           return true;
         }
-      
+
         return false;
       });
     }
@@ -37,6 +37,7 @@ export class NavbarComponent {
         console.log(err);
       }
     });
+    this.storage.clean();
   }
 
 }

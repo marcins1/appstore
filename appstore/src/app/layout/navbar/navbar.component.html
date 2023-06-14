@@ -9,15 +9,15 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" routerLink="">apps</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="isLoggedIn" class="nav-item">
           <a class="nav-link" routerLink="cart">cart</a>
         </li>
         <li *ngIf="isLoggedIn && isAdmin" class="nav-item">
           <a class="nav-link" routerLink="admin">Admin board</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link disabled" routerLink="profile">Disabled</a>
-        </li>
+        </li> -->
       </ul>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

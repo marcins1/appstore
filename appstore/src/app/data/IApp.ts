@@ -1,8 +1,9 @@
 export interface App{
-  id: number,
-  name: String,
+  _id: string,
+  name: string,
   price: number,
-  photos: String[],
-  premiumDiscount: number,
-  description: String
+  downloadSize: number;
+  description: string;
+  photos: string[],
+  numOfDownloads?: number;
 }

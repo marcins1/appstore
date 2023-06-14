@@ -1,4 +1,5 @@
 const db = require("../models");
+// var ObjectId = require('mongodb').ObjectId;
 const Application = db.applications;
 
 // Create and Save a new Application
@@ -7,23 +8,28 @@ exports.create = (req, res) => {
         res.status(400).send({ message: "Content can not be empty!" });
         return;
     }
+    console.log(req.body.photos);
 
     // Create a Application
     const application = new Application({
+        appID: req.body.appID,
         name: req.body.name,
         price: req.body.price,
-        download_size: req.body.download_size,
+        downloadSize: req.body.download_size,
         description: req.body.description,
         photos: req.body.photos,
-        number_of_downloads: 0
+        numberOfDownloads: 0
     });
+    console.log(application.photos)
 
     // Save Application in the database
     application.save(application)
         .then(data => {
+            console.log(data);
             res.send(data);
         })
         .catch(err => {
+            console.log(err)
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while creating the Application."

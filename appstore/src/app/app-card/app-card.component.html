@@ -1,11 +1,13 @@
 <div class="app-card">
-  <div class="photos">{{ photos[0] }}</div>
+  <div class="photos">
+    <img src="{{ photos[0] }}">
+  </div>
   <div class="description"> {{ name }} {{ description }}</div>
   <div class="controls">
     <div class="price"> cena: {{ price }} </div>
-    <div class="buttons">
-      <button type="button" (click)="addToChart()" class="btn btn-success">+</button>
-      <button type="button" (click)="removeFromCart()" class="btn btn-danger">-</button>
+    <div *ngIf="isLoggedIn()" class="buttons">
+      <button  type="button" (click)="addToChart()" class="btn btn-success">+</button>
+      <button  type="button" (click)="removeFromCart()" class="btn btn-danger">-</button>
     </div>
   </div>
 </div>

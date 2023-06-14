@@ -18,9 +18,35 @@ module.exports = app => {
   
     router.get(
         "/admin",
-        [authJwt.verifyToken, authJwt.isAdmin],
+        [authJwt.verifyToken, 
+            // authJwt.isAdmin
+        ],
         controller.adminBoard
     );
+
+    router.get(
+        "/cart", 
+        [authJwt.verifyToken], 
+        controller.userCart
+    );
+    
+    router.post(
+        "/cart/add", 
+        [authJwt.verifyToken], 
+        controller.addItemToCart
+    );
+
+    router.post(
+        "/cart/remove", 
+        [authJwt.verifyToken], 
+        controller.removeItemFromCart
+    );
+
+    router.post(
+        "/cart/buy",
+        [authJwt.verifyToken],
+        controller.buy
+    )
 
     app.use('/authorization', router);
 };

@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { User } from '../data/user-utils';
+import { StorageService } from './storage.service';
 const AUTH_API = 'http://localhost:8080/authentication/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
-interface user{
-  username: String;
-  email: String;
-  id: Number;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +15,19 @@ interface user{
 
 export class AuthService {
 
-  User: user;
-  constructor(private http: HttpClient) {
-    this.User = {
+  user: User;
+  constructor(private http: HttpClient,
+              private storage: StorageService) {
+    this.user = {
       username: "default_user",
       email: "default_mail",
-      id: 0
+      userID: '0',
+      role: "guest",
+      listOfApps: [],
+      premiumSubs: [],
+      cart: [],
     }
+    // this.storage.saveUser(this.user);
   }
 
   login(username: string, password: string): Observable<any> {
@@ -37,7 +38,7 @@ export class AuthService {
         password,
       },
       httpOptions
-    );
+    )
   }
 
   register(username: string, email: string, password: string): Observable<any> {
@@ -56,8 +57,18 @@ export class AuthService {
     return this.http.post(AUTH_API + 'logout', { }, httpOptions);
   }
 
-  getCurrentUser(){
-    return this.User;
+  getCurrentUser(): User {
+    let user = this.storage.getUser();
+    if(user){
+      this.user.userID = user._id;
+      this.user.username = user.username;
+      this.user.email = user.email;
+      this.user.role = user.roles[0].name;
+      this.user.listOfApps = user.listOfApps;
+      this.user.premiumSubs = user.PremiumSubscriptions;
+      this.user.cart = user.cart;
+    }
+    return this.user
   }
 
 }

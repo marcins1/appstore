@@ -19,12 +19,13 @@ export class CartComponent {
   calculatePrice(): number{
     let sum = 0;
     this.apps.forEach(element => {
-      sum += element.price;
+      if(element) sum += element.price;
     })
     return sum;
   }
 
   buyApps(){
-    console.log("buying list of apps");
+    this.cart.buyItems();
+    console.log("buying list of apps " + this.apps);
   }
 }

@@ -97,13 +97,8 @@ exports.login = (req, res) => {
         }
 
         req.session.token = token;
-
-        res.status(200).send({
-            id: user._id,
-            username: user.username,
-            email: user.email,
-            roles: authorities,
-        });
+        // do poprawy
+        res.status(200).send(user);
     });
 };
 

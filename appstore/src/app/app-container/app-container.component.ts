@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppsDataProviderService } from '../services/apps-data-provider.service';
+import  mockAppsData  from '../data/mockAppsData.json'
 
 @Component({
   selector: 'app-app-container',
@@ -8,9 +9,17 @@ import { AppsDataProviderService } from '../services/apps-data-provider.service'
 })
 export class AppContainerComponent {
 
-  Apps: any[];
+  Apps: any[]=  [];
 
   constructor(DataService: AppsDataProviderService){
-    this.Apps = DataService.getAllApps();
+    DataService.getAllApps().subscribe({
+      next: data => {
+        this.Apps = data as any[];
+        console.log(this.Apps)
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
   }
 }

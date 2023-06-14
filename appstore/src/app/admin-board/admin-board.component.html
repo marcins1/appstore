@@ -2,4 +2,35 @@
     <header class="jumbotron">
         <p>{{ content }}</p>
     </header>
+    <h2>Add New App</h2>
+
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" [(ngModel)]="newApp._id" required>
+      </div>
+      <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="newApp.name" required>
+      </div>
+      <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" [(ngModel)]="newApp.price" required>
+      </div>
+      <div>
+        <label for="downloadSize">Download Size:</label>
+        <input type="number" id="downloadSize" name="downloadSize" [(ngModel)]="newApp.downloadSize">
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" [(ngModel)]="newApp.description" required></textarea>
+      </div>
+      <div>
+        <label for="photos">Photo url:</label>
+        <input type="text" id="photos" name="photos" [(ngModel)]="photo" required>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
 </div>

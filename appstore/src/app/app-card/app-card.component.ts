@@ -1,7 +1,12 @@
 import { Component, Input } from '@angular/core';
-import { AuthService } from '../services/auth.service';
-import { AppsDataProviderService } from '../services/apps-data-provider.service';
 import { CartService } from '../services/cart.service';
+import { StorageService } from '../services/storage.service';
+
+interface cartElement{
+  appID: String,
+  name: String,
+
+}
 
 @Component({
   selector: 'app-card',
@@ -14,9 +19,10 @@ export class AppCardComponent {
   @Input() photos: String[];
   @Input() description: String;
   @Input() premium_discount: number;
-  @Input() appID: number = 0;
+  @Input() appID: string = "0";
 
-  constructor(private cart: CartService){
+  constructor(private cart: CartService,
+              private storage: StorageService){
     this.name = "loading";
     this.price = 0;
     this.photos = [];
@@ -32,5 +38,7 @@ export class AppCardComponent {
   removeFromCart(){
     this.cart.removeItem(this.appID);
   }
-
+  isLoggedIn():boolean{
+    return this.storage.isLoggedIn();
+  }
 }
