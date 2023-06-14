@@ -10,7 +10,8 @@ module.exports = mongoose => {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: "role"
                 }
-            ]
+            ],
+            subscriptions: [{type: Number}]
         })
     );
 

@@ -4,6 +4,8 @@ import { Observable } from 'rxjs';
 
 const API_URL = 'http://localhost:8080/authorization/';
 
+const APPL_API_URI = 'http://localhost:8080/applications';
+
 @Injectable({
   providedIn: 'root',
 })
