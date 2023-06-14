@@ -81,10 +81,10 @@ export class CartService {
     this.cartApps.forEach((appData, appID) => {
       apps.push(appData);
     });
-    return apps;
+    return apps ;
   }
 
   buyItems():void{
-
+    
   }
 }

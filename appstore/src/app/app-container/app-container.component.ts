@@ -9,10 +9,9 @@ import  mockAppsData  from '../data/mockAppsData.json'
 })
 export class AppContainerComponent {
 
-  Apps: any[];
+  Apps: any[]=  [];
 
   constructor(DataService: AppsDataProviderService){
-    this.Apps = mockAppsData;
     DataService.getAllApps().subscribe({
       next: data => {
         this.Apps = data as any[];

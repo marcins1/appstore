@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../data/user-utils';
+import { StorageService } from './storage.service';
 const AUTH_API = 'http://localhost:8080/authentication/';
 
 const httpOptions = {
@@ -15,7 +16,8 @@ const httpOptions = {
 export class AuthService {
 
   user: User;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+              private storage: StorageService) {
     this.user = {
       username: "default_user",
       email: "default_mail",
@@ -55,18 +57,16 @@ export class AuthService {
   }
 
   getCurrentUser(): User {
-    let user = window.sessionStorage.getItem('user_authorization');
+    let user = this.storage.getUser();
     if(user){
-      const userData = JSON.parse(user);
-      this.user.userID = userData._id;
-      this.user.username = userData.username;
-      this.user.email = userData.email;
-      this.user.role = userData.roles[0].name;
-      this.user.listOfApps = userData.listOfApps;
-      this.user.premiumSubs = userData.PremiumSubscriptions;
-      this.user.cart = userData.cart;
+      this.user.userID = user._id;
+      this.user.username = user.username;
+      this.user.email = user.email;
+      this.user.role = user.roles[0].name;
+      this.user.listOfApps = user.listOfApps;
+      this.user.premiumSubs = user.PremiumSubscriptions;
+      this.user.cart = user.cart;
     }
-    console.log(this.user);
     return this.user
   }
 

@@ -33,41 +33,28 @@ exports.userCart = (req, res) => {
 
 // add to cart
 exports.addItemToCart = (req, res) => {
-    console.log("user: " + req.body.userID +" app: " + req.body.appID);
-    const id = req.body.id;
-    const o_id = new ObjectId(id);
     const appId = req.body.appID;
-    users.findOne(
-        { _id: o_id }, // Find the user by their ObjectId
-        { $push: { cart: appId} }, // Add the new item to the cart array
-        { new: true } // Return the updated document
-      ).then(data => console.log(data));
+    
+    users.updateOne(
+        { _id: ObjectId(req.body.userID) }, // Find the user by their ObjectId
+        { $push: {cart: appId} }, // Add the new item to the cart array
+      ).then((data) => {
+        console.log('Cart updated successfully ' + JSON.stringify(data));
+      })
+      .catch(error => {
+        console.error('Error updating cart:', error);
+      });
 }
 // remove item from cart
 exports.removeItemFromCart = (req, res) => {
-    console.log("data: "+ req.body);
-    const id = req.body.userID;
-    const o_id = new ObjectId(id);
     const appId = req.body.appID;
-    users.findOne({_id:o_id}, (err, user) => {
-        if(err) {
-            console.log(err);
-            return;
-        }
-
-        if(!user) {
-            console.log('User not found');
-            return;
-        }
-
-        user.cart.pull(appId);
-
-        user.save((err) => {
-            if(err) {
-                console.log(err);
-                return;
-            }
-            console.log('Item removed from cart successfully');
-        });
-    });
+    users.updateOne(
+        { _id: ObjectId(req.body.userID) }, // Find the user by their ObjectId
+        { $pull: { cart: appId} }, // Add the new item to the cart array
+      ).then((data) => {
+        console.log('Cart updated successfully ' + data);
+      })
+      .catch(error => {
+        console.error('Error updating cart:', error);
+      });
 }
