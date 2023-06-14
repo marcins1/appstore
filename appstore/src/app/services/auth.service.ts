@@ -27,6 +27,7 @@ export class AuthService {
       premiumSubs: [],
       cart: [],
     }
+    // this.storage.saveUser(this.user);
   }
 
   login(username: string, password: string): Observable<any> {

@@ -25,6 +25,7 @@ export class CartComponent {
   }
 
   buyApps(){
+    this.cart.buyItems();
     console.log("buying list of apps " + this.apps);
   }
 }

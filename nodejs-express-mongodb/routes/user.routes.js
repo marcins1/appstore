@@ -35,12 +35,18 @@ module.exports = app => {
         [authJwt.verifyToken], 
         controller.addItemToCart
     );
-    
+
     router.post(
         "/cart/remove", 
         [authJwt.verifyToken], 
         controller.removeItemFromCart
     );
+
+    router.post(
+        "/cart/buy",
+        [authJwt.verifyToken],
+        controller.buy
+    )
 
     app.use('/authorization', router);
 };

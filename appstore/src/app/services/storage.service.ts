@@ -7,7 +7,8 @@ const USER_KEY = 'user_authorization';
   providedIn: 'root'
 })
 export class StorageService {
-  constructor() {}
+  constructor() {
+  }
 
   clean(): void {
     window.sessionStorage.clear();
