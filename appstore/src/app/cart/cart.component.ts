@@ -19,7 +19,7 @@ export class CartComponent {
   calculatePrice(): number{
     let sum = 0;
     this.apps.forEach(element => {
-      sum += element.price;
+      if(element) sum += element.price;
     })
     return sum;
   }

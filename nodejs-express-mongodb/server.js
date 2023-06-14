@@ -39,7 +39,7 @@ app.listen(PORT, () => {
 
 const db = require("./models");
 const Role = db.role;
-
+db.mongoose.set('strictQuery', false)
 db.mongoose
   .connect(db.url, {
     useNewUrlParser: true,

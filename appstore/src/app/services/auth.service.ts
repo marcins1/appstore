@@ -1,18 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
+import { User } from '../data/user-utils';
 const AUTH_API = 'http://localhost:8080/authentication/';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
 };
-
-interface user{
-  username: String;
-  email: String;
-  id: Number;
-}
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +14,16 @@ interface user{
 
 export class AuthService {
 
-  User: user;
+  user: User;
   constructor(private http: HttpClient) {
-    this.User = {
+    this.user = {
       username: "default_user",
       email: "default_mail",
-      id: 0
+      userID: '0',
+      role: "guest",
+      listOfApps: [],
+      premiumSubs: [],
+      cart: [],
     }
   }
 
@@ -37,7 +35,7 @@ export class AuthService {
         password,
       },
       httpOptions
-    );
+    )
   }
 
   register(username: string, email: string, password: string): Observable<any> {
@@ -56,8 +54,20 @@ export class AuthService {
     return this.http.post(AUTH_API + 'logout', { }, httpOptions);
   }
 
-  getCurrentUser(){
-    return this.User;
+  getCurrentUser(): User {
+    let user = window.sessionStorage.getItem('user_authorization');
+    if(user){
+      const userData = JSON.parse(user);
+      this.user.userID = userData._id;
+      this.user.username = userData.username;
+      this.user.email = userData.email;
+      this.user.role = userData.roles[0].name;
+      this.user.listOfApps = userData.listOfApps;
+      this.user.premiumSubs = userData.PremiumSubscriptions;
+      this.user.cart = userData.cart;
+    }
+    console.log(this.user);
+    return this.user
   }
 
 }

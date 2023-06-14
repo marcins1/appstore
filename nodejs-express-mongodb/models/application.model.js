@@ -3,12 +3,13 @@ module.exports = mongoose => {
       "application",
       mongoose.Schema(
         {
+          appID: Number,
           name: String,
           price: Number,
-          download_size: Number,
+          downloadSize: Number,
           description: String,
-          photos: String,
-          number_of_downloads: Number
+          photos: [String],
+          numberOfDownloads: Number
         },
         { timestamps: true }
       )

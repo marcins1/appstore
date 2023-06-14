@@ -1,6 +1,6 @@
 <div class="parent">
   <div class="row" *ngFor="let app of apps">
-    <app-cart-item [appID]="app.id" [name]="app.name" [price]="app.price"></app-cart-item>
+    <app-cart-item [appID]="app._id" [name]="app.name" [price]="app.price"></app-cart-item>
   </div>
   <div class="checkout">
     <button (click)="buyApps()" class="btn btn-success">Zapłać {{calculatePrice()}}</button>

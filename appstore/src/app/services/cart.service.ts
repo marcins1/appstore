@@ -2,40 +2,89 @@ import { Injectable } from '@angular/core';
 import { AuthService } from './auth.service';
 import { AppsDataProviderService } from './apps-data-provider.service';
 import { App } from '../data/IApp';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const USER_API = 'http://localhost:8080/authorization/cart';
+
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+
+interface CartUpdate{
+  userID: string,
+  appID: string
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
-
-  currentUserID: Number;
-  cartApps: Map<number, App> = new Map<number, App>;
+  currentUserID: string;
+  cartApps: Map<string, App> = new Map<string, App>;
 
 
   constructor(private auth: AuthService,
-    private data: AppsDataProviderService) {
-      this.currentUserID = this.auth.getCurrentUser().id;
-      let cartApssIds: Array<any> = this.data.getCartAppsIDs();
-      cartApssIds.forEach(element => {
-        this.cartApps.set(element, this.data.getAppById(element));
+    private data: AppsDataProviderService,
+    private http: HttpClient) {
+      this.currentUserID = this.auth.getCurrentUser().userID;
+      let cartAppIds = this.data.getCartAppsIDs();
+      cartAppIds.forEach(appID=> {
+        let newApp = this.data.getAppById(appID);
+      if(newApp) this.cartApps.set(appID, newApp);
       });
     }
 
-  addItem(itemID: number){
-    this.cartApps.set(itemID, this.data.getAppById(itemID));
-    console.log("mock add " + itemID);
+  addItem(itemID: string){
+    const data: CartUpdate = {
+      userID: this.currentUserID,
+      appID: itemID
+    }
+    this.http.post(USER_API + "/add", data, httpOptions).subscribe({
+      next: data => {
+        console.log("Added item to cart, respone:\n" + data);
+      },
+      error: err => {
+        alert(err);
+      }
+    })
+    let newApp = this.data.getAppById(itemID);
+      if(newApp) this.cartApps.set(itemID, newApp);
   }
 
-  removeItem(itemID: number){
+  removeItem(itemID: string){
+    const data: CartUpdate = {
+      userID: this.currentUserID,
+      appID: itemID
+    }
+    this.http.post(USER_API + "/remove", data, httpOptions).subscribe({
+      next: data => {
+        console.log("Removed item from cart, respone:\n" + data);
+      },
+      error: err => {
+        alert(err);
+      }
+    })
+
     this.cartApps.delete(itemID);
-    console.log("mock remove " + itemID);
   }
 
   getCart(): App[]{
+    this.currentUserID = this.auth.getCurrentUser().userID;
+    let cartAppIds = this.data.getCartAppsIDs();
+    console.log(cartAppIds);
+    cartAppIds.forEach(appID=> {
+      let newApp = this.data.getAppById(appID);
+      if(newApp) this.cartApps.set(appID, newApp);
+    });
     let apps: App[] = [];
-    for(let [key, value] of this.cartApps){
-      apps.push(value);
-    }
+    this.cartApps.forEach((appData, appID) => {
+      apps.push(appData);
+    });
     return apps;
+  }
+
+  buyItems():void{
+
   }
 }
