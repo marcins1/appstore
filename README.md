@@ -74,6 +74,35 @@ mongoose.model(
     )
 );
 ```
+### Model subskrypcji
+```sh
+mongoose.model(
+    "subscription",
+    new mongoose.Schema({
+            id: Number,
+            rank: String,
+            apps_with_discount: [ 
+                {
+                    type: mongoose.Schema.Types.ObjectId,
+                    ref: "discount"
+                }
+            ],
+            free_apps: [{type: Number}],
+            price: Number,
+            quantity: {type: Number, min: 0}
+    })
+);
+```
+### Model zniżki
+```sh
+mongoose.model(
+    "discount",
+    new mongoose.Schema({
+        app_id: Number,
+        discount_value: Number
+    })
+);
+```
 
 ## Backend
 ### Punkty końcowe API
@@ -86,6 +115,24 @@ mongoose.model(
 #### Wylogowywanie
 - URL: /authentication/logout
 - Metoda: POST
+#### Profil użytkownika
+- URL: /user
+- Metoda: GET
+#### Koszyk użytkownika
+- URL: /cart
+- Metoda: GET
+#### Dodawanie aplikacji do koszyka
+- URL: /cart/add
+- Metoda: POST
+#### Usuwanie aplikacji z koszyka
+- URL: /cart/remove
+- Metoda: POST
+#### Kupowanie aplikacji z koszyka
+- URL: /cart/buy
+- Metoda: POST
+#### Pobieranie aplikacji użytkownika
+- URL: /myapps
+- Metoda: GET
 #### Dodawanie aplikacji
 - URL: /applications
 - Metoda: POST
@@ -103,7 +150,7 @@ mongoose.model(
 - Metoda: DELETE
 #### Usuwanie wszystkich aplikacji
 - URL: /applications
-- Metoda: DELETE
+- Metoda: DELETEs
 
 ## Autorzy
 - [Marcin Saja](https://github.com/marcins1)
