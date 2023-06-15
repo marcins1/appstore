@@ -48,5 +48,11 @@ module.exports = app => {
         controller.buy
     )
 
+    router.get(
+        "/myapps",
+        [authJwt.verifyToken],
+        controller.myApps
+    )
+
     app.use('/authorization', router);
 };

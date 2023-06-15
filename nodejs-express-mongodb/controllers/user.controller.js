@@ -80,8 +80,23 @@ exports.buy = (req, res) => {
     });
 }
 
+exports.myApps = (req, res) => {
+  const id = req.query.id
+  users.findOne(ObjectId(id))
+  .then((data) => {
+    if (!data)
+      res.status(404).send({ message: "Not found user with id " + id });
+    else res.send(data.listOfAps);
+  }   
+  ).catch(err => {
+    res
+        .status(500)
+        .send({ message: "Error retrieving user data with id:" + id + " err: " + err });
+});
+}
+
 async function buyApps(userID){
-  var dt = dateTime.create().format('Y-m-d H:M:S');
+  var dt = new Date()
   const pipeline = [
     {
       $match: { _id: ObjectId(userID)}

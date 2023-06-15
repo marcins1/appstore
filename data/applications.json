@@ -1,0 +1,128 @@
+[{
+  "_id": {
+    "$oid": "64884175ffd42b5594eeee08"
+  },
+  "name": "Facebook",
+  "price": 0,
+  "description": "this is a complex, rich feature, social media app, where you can find all your friends, and relatives!",
+  "photos": [
+    "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80",
+    "https://images.unsplash.com/photo-1611162618071-b39a2ec055fb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+  ],
+  "numberOfDownloads": 0,
+  "createdAt": {
+    "$date": "2023-06-13T10:14:13.338Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-13T10:14:13.338Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64884932ffd42b5594eeee2f"
+  },
+  "name": "Twitter",
+  "price": 200,
+  "description": "is  a nice place to share your thoughts",
+  "photos": [
+    "https://images.unsplash.com/photo-1611605698335-8b1569810432?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+  ],
+  "numberOfDownloads": 0,
+  "createdAt": {
+    "$date": "2023-06-13T10:47:14.036Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-13T10:47:14.036Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6489e883c3bb69ca39dec0b9"
+  },
+  "name": "Instagram",
+  "price": 0,
+  "description": " is a great app to share your photos with friends and the rest of the world!",
+  "photos": [
+    "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+  ],
+  "numberOfDownloads": 0,
+  "createdAt": {
+    "$date": "2023-06-14T16:19:15.206Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-14T16:19:15.206Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648ad17f2710ed9448476b53"
+  },
+  "name": "Signal",
+  "price": 0,
+  "description": "is a simple open source messaging app, e2e encrypted",
+  "photos": [
+    "https://images.unsplash.com/photo-1659353670522-674c7cc8a969?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+  ],
+  "numberOfDownloads": 0,
+  "createdAt": {
+    "$date": "2023-06-15T08:53:19.399Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T08:53:19.399Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648ad30e2710ed9448476b92"
+  },
+  "name": "TikTok",
+  "price": 100,
+  "description": " is a social platform where you can watch other's people short videos",
+  "photos": [
+    "https://images.unsplash.com/photo-1594321120022-7649850959bb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDN8fHNpZ25hbCUyMGFwcHxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&w=500&q=60"
+  ],
+  "numberOfDownloads": 0,
+  "createdAt": {
+    "$date": "2023-06-15T08:59:58.319Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T08:59:58.319Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648ad4902710ed9448476bc6"
+  },
+  "name": "Calculator",
+  "price": 20,
+  "description": ". Just a simple calculator",
+  "photos": [
+    "https://images.unsplash.com/photo-1628935687655-8530bb7211bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=711&q=80"
+  ],
+  "numberOfDownloads": 0,
+  "createdAt": {
+    "$date": "2023-06-15T09:06:24.892Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T09:06:24.892Z"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "648ad4ff2710ed9448476bca"
+  },
+  "name": "calendar",
+  "price": 100,
+  "description": ". A simple calendar",
+  "photos": [
+    "https://images.unsplash.com/photo-1609334004539-c029d338f889?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1074&q=80"
+  ],
+  "numberOfDownloads": 0,
+  "createdAt": {
+    "$date": "2023-06-15T09:08:15.078Z"
+  },
+  "updatedAt": {
+    "$date": "2023-06-15T09:08:15.078Z"
+  },
+  "__v": 0
+}]
